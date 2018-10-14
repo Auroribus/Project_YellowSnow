@@ -14,6 +14,8 @@ public class DoorController : MonoBehaviour {
 
     private Animator an;
 
+    public GameObject room_parent;
+
     private void Awake()
     {
         an = GetComponent<Animator>();
@@ -25,12 +27,17 @@ public class DoorController : MonoBehaviour {
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
-    {
+    {        
         if(!is_open && collision.tag == "Player")
-        { 
+        {
             is_open = true;
             DoorState(true);
-            LevelController.instance.CreateRoom(transform, RoomTypes.hall, door_direction);
+            LevelController.instance.CreateRoom(transform, door_direction);
+        }
+        else if(is_open && collision.tag == "Player")
+        {
+            Camera.main.GetComponent<CameraController>().set_room_point_once = false;
+            Camera.main.GetComponent<CameraController>().room_middle_point = room_parent.GetComponent<RoomCreator>().middle_point;            
         }
     }
 

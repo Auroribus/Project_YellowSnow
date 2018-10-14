@@ -135,17 +135,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1608223137734484}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb6c97385e8d84542b9080afd730690d, type: 3}
+  m_Script: {fileID: 11500000, guid: 06cbd1509a398e74c9619b85ca201220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Wall_piece: {fileID: 1289107465566330, guid: dddaa55504c6ba44181677e73c77c0d9, type: 2}
-  Floor_piece: {fileID: 1994508436055540, guid: 5a4ce9f47408a7a459ac2963f5d974ea,
+  Wall_piece: {fileID: 1289107465566330, guid: 4d2348a307ef7bf49abc8687933deb40, type: 2}
+  Floor_piece: {fileID: 1994508436055540, guid: f52820efa154d584ea6c7b9c0be56aec,
     type: 2}
-  Door_piece: {fileID: 1958928805395312, guid: e081f6ca8267372419a88133318e4713, type: 2}
-  Player_prefab: {fileID: 1862794222756744, guid: 00db65e8f56a966478205afed754bc7b,
+  Door_piece: {fileID: 1958928805395312, guid: 94e601b1b5dd3814e8e676e3d2027652, type: 2}
+  Player_prefab: {fileID: 1862794222756744, guid: cb7493cb9d6cb534e8fc8c562b07c963,
     type: 2}
-  rows: 7
-  columns: 7
+  rows: 19
+  columns: 35
   amount_of_enemies: 0
+  dead_end_chance: 2
   room_type: 0
   generate_onStart: 0
+  middle_point: {x: 0, y: 0}
