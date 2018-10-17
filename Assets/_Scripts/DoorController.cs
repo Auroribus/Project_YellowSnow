@@ -8,6 +8,7 @@ public enum DoorDirection
 public class DoorController : MonoBehaviour {
 
     public bool is_open = false;
+    public bool was_open = false;
     public bool trigger_new_room = false;
 
     public DoorDirection door_direction;
@@ -28,16 +29,28 @@ public class DoorController : MonoBehaviour {
     
     private void OnTriggerEnter2D(Collider2D collision)
     {        
-        if(!is_open && collision.tag == "Player")
+        if(collision.tag == "Player" && !is_open && room_parent.GetComponent<RoomCreator>().room_type == RoomType.start)
+        {
+            is_open = true;
+            DoorState(true);
+            LevelController.instance.CreateRoom(transform, door_direction);     
+        }
+        else if(collision.tag == "Player" && !is_open && was_open && room_parent.GetComponent<RoomCreator>().room_cleared)
+        {
+            is_open = true;
+            DoorState(true);
+        }
+        else if(collision.tag == "Player" && !is_open && !was_open && room_parent.GetComponent<RoomCreator>().room_cleared)
         {
             is_open = true;
             DoorState(true);
             LevelController.instance.CreateRoom(transform, door_direction);
         }
-        else if(is_open && collision.tag == "Player")
+        else if(collision.tag == "Player" && is_open &&  was_open)
         {
             Camera.main.GetComponent<CameraController>().set_room_point_once = false;
-            Camera.main.GetComponent<CameraController>().room_middle_point = room_parent.GetComponent<RoomCreator>().middle_point;            
+            Camera.main.GetComponent<CameraController>().room_middle_point = room_parent.GetComponent<RoomCreator>().middle_point;
+            Camera.main.GetComponent<CameraController>().active_room = room_parent.GetComponent<RoomCreator>();
         }
     }
 
@@ -45,13 +58,14 @@ public class DoorController : MonoBehaviour {
     {
         if (open)
         {
-            an.SetTrigger("open_door");
+            an.SetBool("door_open", open);
+            was_open = true;
             is_open = true;
         }
-        else
+        else if(!open)
         {
             is_open = false;
-            an.SetTrigger("close_door");
+            an.SetBool("door_open", open);
         }
     }
 }

@@ -42,7 +42,7 @@ public class LevelController : MonoBehaviour {
         Rooms[Rooms.Count - 1].GetComponent<RoomCreator>().rows = rows;
         Rooms[Rooms.Count - 1].GetComponent<RoomCreator>().columns = columns;
 
-        Rooms[Rooms.Count - 1].GetComponent<RoomCreator>().room_type = RoomTypes.general;
+        Rooms[Rooms.Count - 1].GetComponent<RoomCreator>().room_type = RoomType.general;
         Rooms[Rooms.Count - 1].GetComponent<RoomCreator>().GenerateRoom(door_direction);
     }
 }

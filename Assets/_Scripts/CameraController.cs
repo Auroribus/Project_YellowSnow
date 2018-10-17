@@ -12,6 +12,8 @@ public class CameraController : MonoBehaviour {
     private float scroll_speed_multiplier;
 
     public bool set_room_point_once = false;
+
+    public RoomCreator active_room;
     
 	// Update is called once per frame
 	void Update () {
@@ -23,37 +25,7 @@ public class CameraController : MonoBehaviour {
                 if(set_room_point_once)
                     set_room_point_once = false;
 
-                //move camera left if player on left side of room
-                if (player.position.x < room_middle_point.x - treshold_x)
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, new Vector3(room_middle_point.x - (treshold_x / 2), transform.position.y, -100f), scroll_speed * Time.deltaTime);
-                }
-                //move camera right if player on right side of room
-                else if (player.position.x > room_middle_point.x + treshold_x)
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, new Vector3(room_middle_point.x + (treshold_x / 2), transform.position.y, -100f), scroll_speed * Time.deltaTime);
-                }
-                //move camera back to middle
-                else if (player.position.x > room_middle_point.x - treshold_x && player.position.x < room_middle_point.x + treshold_x)
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, new Vector3(room_middle_point.x, transform.position.y, -100f), scroll_speed * Time.deltaTime);
-                }
-
-                //move camera down if player on bottom side of room
-                if (player.position.y < room_middle_point.y - treshold_y)
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, room_middle_point.y - (treshold_y / 5), -100f), scroll_speed * Time.deltaTime);
-                }
-                //move camera up if player on top side of room
-                else if (player.position.y > room_middle_point.y + treshold_y)
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, room_middle_point.y + (treshold_y / 5), -100f), scroll_speed * Time.deltaTime);
-                }
-                //move camera back to middle
-                else if (player.position.y > room_middle_point.y - treshold_y && player.position.y < room_middle_point.y + treshold_y)
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, room_middle_point.y, -100f), scroll_speed * Time.deltaTime);
-                }
+                //MoveCameraWithPlayer();
             }
             else 
             {
@@ -83,5 +55,51 @@ public class CameraController : MonoBehaviour {
         CancelInvoke("SetMiddlePoint_Old");
 
         player.GetComponent<PlayerController>().input_speed = 10;
+
+        if (active_room.room_type != RoomType.start && !active_room.spawn_control.has_spawned )
+        {
+            foreach(Transform t in active_room.DoorPieces)
+            {
+                t.GetComponent<DoorController>().DoorState(false);
+                Debug.Log("closing doors");
+            }
+            active_room.spawn_control.SpawnEnemies();
+        }
     }
+
+    private void MoveCameraWithPlayer()
+    {
+        //move camera left if player on left side of room
+        if (player.position.x < room_middle_point.x - treshold_x)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(room_middle_point.x - (treshold_x / 2), transform.position.y, -100f), scroll_speed * Time.deltaTime);
+        }
+        //move camera right if player on right side of room
+        else if (player.position.x > room_middle_point.x + treshold_x)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(room_middle_point.x + (treshold_x / 2), transform.position.y, -100f), scroll_speed * Time.deltaTime);
+        }
+        //move camera back to middle
+        else if (player.position.x > room_middle_point.x - treshold_x && player.position.x < room_middle_point.x + treshold_x)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(room_middle_point.x, transform.position.y, -100f), scroll_speed * Time.deltaTime);
+        }
+
+        //move camera down if player on bottom side of room
+        if (player.position.y < room_middle_point.y - treshold_y)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, room_middle_point.y - (treshold_y / 5), -100f), scroll_speed * Time.deltaTime);
+        }
+        //move camera up if player on top side of room
+        else if (player.position.y > room_middle_point.y + treshold_y)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, room_middle_point.y + (treshold_y / 5), -100f), scroll_speed * Time.deltaTime);
+        }
+        //move camera back to middle
+        else if (player.position.y > room_middle_point.y - treshold_y && player.position.y < room_middle_point.y + treshold_y)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, room_middle_point.y, -100f), scroll_speed * Time.deltaTime);
+        }
+    }
+    
 }

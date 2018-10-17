@@ -9,16 +9,33 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1293498406716254}
+  m_RootGameObject: {fileID: 1608223137734484}
   m_IsPrefabAsset: 1
---- !u!1 &1056968485821536
+--- !u!1 &1608223137734484
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4766989477124002}
+  - component: {fileID: 4786422508726678}
+  - component: {fileID: 114759990124584952}
+  - component: {fileID: 114709074028313738}
+  m_Layer: 0
+  m_Name: RoomParent
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1704440411999108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4610801466766478}
   m_Layer: 0
   m_Name: Wall Pieces
   m_TagString: Untagged
@@ -26,14 +43,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1224328433332686
+--- !u!1 &1811197219369738
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4736103836273838}
+  - component: {fileID: 4146812648283712}
   m_Layer: 0
   m_Name: Floor Pieces
   m_TagString: Untagged
@@ -41,30 +58,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1293498406716254
+--- !u!1 &1885030410749398
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4770074216739972}
-  - component: {fileID: 114967456320523060}
-  m_Layer: 0
-  m_Name: Start Room
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1879434725300342
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4682071983454282}
+  - component: {fileID: 4398785166189152}
   m_Layer: 0
   m_Name: Door Pieces
   m_TagString: Untagged
@@ -72,67 +73,82 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4682071983454282
+--- !u!4 &4146812648283712
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1879434725300342}
+  m_GameObject: {fileID: 1811197219369738}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4770074216739972}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4736103836273838
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1224328433332686}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4770074216739972}
+  m_Father: {fileID: 4786422508726678}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4766989477124002
+--- !u!4 &4398785166189152
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1056968485821536}
+  m_GameObject: {fileID: 1885030410749398}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4770074216739972}
-  m_RootOrder: 0
+  m_Father: {fileID: 4786422508726678}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4770074216739972
+--- !u!4 &4610801466766478
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1293498406716254}
+  m_GameObject: {fileID: 1704440411999108}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4786422508726678}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4786422508726678
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1608223137734484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4766989477124002}
-  - {fileID: 4682071983454282}
-  - {fileID: 4736103836273838}
+  - {fileID: 4610801466766478}
+  - {fileID: 4398785166189152}
+  - {fileID: 4146812648283712}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114967456320523060
+--- !u!114 &114709074028313738
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1293498406716254}
+  m_GameObject: {fileID: 1608223137734484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d4274f81355fc49bb7878004d6ac96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy_types_small:
+  - {fileID: 1230414191732774, guid: 1c3bf23e8fa04cd41b846b6ad586795f, type: 2}
+  enemy_types_medium: []
+  enemy_types_boss: []
+--- !u!114 &114759990124584952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1608223137734484}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06cbd1509a398e74c9619b85ca201220, type: 3}
@@ -147,7 +163,8 @@ MonoBehaviour:
   rows: 19
   columns: 35
   amount_of_enemies: 0
-  dead_end_chance: 5
+  dead_end_chance: 2
+  tile_size: 1
   room_type: 0
-  generate_onStart: 1
+  generate_onStart: 0
   middle_point: {x: 0, y: 0}

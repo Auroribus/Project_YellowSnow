@@ -200,7 +200,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.04, y: 0.04}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.04, y: 0.04}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -225,7 +225,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.04, y: 0.04}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.04, y: 0.04}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -289,8 +289,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is_open: 0
+  was_open: 0
   trigger_new_room: 0
   door_direction: 0
+  room_parent: {fileID: 0}
 --- !u!212 &212320979557712544
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -323,8 +325,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2020046783
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b3e655b89e7428642882a4e7beef3a09, type: 3}
   m_Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
@@ -369,8 +371,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2020046783
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b3e655b89e7428642882a4e7beef3a09, type: 3}
   m_Color: {r: 0.23073158, g: 0.26881316, b: 0.5754717, a: 1}
@@ -415,8 +417,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2020046783
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b3e655b89e7428642882a4e7beef3a09, type: 3}
   m_Color: {r: 0.23073158, g: 0.26881316, b: 0.5754717, a: 1}

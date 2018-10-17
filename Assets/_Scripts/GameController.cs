@@ -2,6 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+#region enums
+
+public enum RoomType
+{
+    start,
+    general
+}
+
+public enum MagicType
+{
+    Solar,
+    Lunar
+}
+
+public enum WeaponName
+{
+    Solshard,
+    Solarbeam
+}
+
+public enum ProjectileType
+{
+    one,
+    two,
+    three
+}
+
+#endregion
 
 public class GameController : MonoBehaviour {
 
@@ -9,6 +39,10 @@ public class GameController : MonoBehaviour {
 
     public Text FPS;
     public Text Rooms;
+    public Text Projectiles;
+    public Text SolarMana;
+    public Text LunarMana;
+    public Text Health;
 
     private void Awake()
     {
@@ -17,6 +51,9 @@ public class GameController : MonoBehaviour {
 
         FPS = GameObject.Find("FPS").GetComponent<Text>();
         Rooms = GameObject.Find("Rooms").GetComponent<Text>();
+        SolarMana = GameObject.Find("Solar").GetComponent<Text>();
+        LunarMana = GameObject.Find("Lunar").GetComponent<Text>();
+        Health = GameObject.Find("Health").GetComponent<Text>();
     }
 
     float deltaTime, fps;
@@ -29,5 +66,9 @@ public class GameController : MonoBehaviour {
         FPS.text = "FPS: " + fps.ToString("F0");
     }
 
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
 }
