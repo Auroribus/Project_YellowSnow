@@ -142,13 +142,13 @@ MonoBehaviour:
   Floor_piece: {fileID: 1994508436055540, guid: f52820efa154d584ea6c7b9c0be56aec,
     type: 2}
   Door_piece: {fileID: 1958928805395312, guid: 94e601b1b5dd3814e8e676e3d2027652, type: 2}
+  crossroad_portal: {fileID: 1837808422937508, guid: fcf5e84c763b57045b738c5c6c83a37e,
+    type: 2}
   Player_prefab: {fileID: 1862794222756744, guid: cb7493cb9d6cb534e8fc8c562b07c963,
     type: 2}
   rows: 15
   columns: 15
-  amount_of_enemies: 0
   dead_end_chance: 5
   tile_size: 1
   room_type: 0
   generate_onStart: 1
-  middle_point: {x: 0, y: 0}

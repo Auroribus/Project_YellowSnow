@@ -11,6 +11,8 @@ public class LevelController : MonoBehaviour {
     private Vector2 spawn_position;
     private int rows = 19, columns = 35;
 
+    public RoomCreator crossroad_room; //set in the camera controller
+
     private void Awake()
     {
         if (instance == null)

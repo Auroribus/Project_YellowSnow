@@ -52,14 +52,14 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+               
+        horizontal_input = Input.GetAxis("Horizontal");
+        vertical_input = Input.GetAxis("Vertical");
 
-        if(Healthpoints <= 0)
+        if (Healthpoints <= 0)
         {
             GameController.instance.RestartGame();
         }
-        
-        horizontal_input = Input.GetAxis("Horizontal");
-        vertical_input = Input.GetAxis("Vertical");
 
         r_body.velocity = new Vector2(horizontal_input, vertical_input) * input_speed;
 

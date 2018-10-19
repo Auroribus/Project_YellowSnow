@@ -30,9 +30,13 @@ public class CameraController : MonoBehaviour {
             else 
             {
                 if (room_middle_point.x < transform.position.x || room_middle_point.x > transform.position.x)
+                {
                     scroll_speed_multiplier = 20;
+                }
                 else if (room_middle_point.y < transform.position.y || room_middle_point.y > transform.position.y)
+                {
                     scroll_speed_multiplier = 10;
+                }
 
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(room_middle_point.x, room_middle_point.y, -100f), scroll_speed * Time.deltaTime * scroll_speed_multiplier);
                 
@@ -44,15 +48,15 @@ public class CameraController : MonoBehaviour {
                     player.GetComponent<PlayerController>().input_speed = 0;
                 }
             }
-
         }
-
 	}
 
     private void SetMiddlePoint_Old()
     {
         old_middle_point = room_middle_point;
         CancelInvoke("SetMiddlePoint_Old");
+
+        LevelController.instance.crossroad_room = active_room;
 
         player.GetComponent<PlayerController>().input_speed = 10;
 
@@ -61,7 +65,6 @@ public class CameraController : MonoBehaviour {
             foreach(Transform t in active_room.DoorPieces)
             {
                 t.GetComponent<DoorController>().DoorState(false);
-                Debug.Log("closing doors");
             }
             active_room.spawn_control.SpawnEnemies();
         }

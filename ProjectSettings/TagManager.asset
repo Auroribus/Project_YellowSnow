@@ -12,6 +12,7 @@ TagManager:
   - Shield
   - ProjectileEnemy
   - ScoreDrop
+  - SmallPortal
   layers:
   - Default
   - TransparentFX

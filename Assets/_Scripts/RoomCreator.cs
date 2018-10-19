@@ -4,7 +4,8 @@ public class RoomCreator : MonoBehaviour {
 
     public GameObject Wall_piece;   
     public GameObject Floor_piece;  
-    public GameObject Door_piece;   
+    public GameObject Door_piece;
+    public GameObject crossroad_portal;
     public GameObject Player_prefab;
 
     private GameObject[,] room_grid;
@@ -19,12 +20,13 @@ public class RoomCreator : MonoBehaviour {
     [System.NonSerialized] public Transform WallPieces, DoorPieces, FloorPieces;
 
     public bool generate_onStart = false;
-    public bool room_cleared = false;
+    [System.NonSerialized] public bool room_cleared = false;
 
-    public Vector2 middle_point;
-    Vector2 instance_point;
+    [System.NonSerialized] public Vector2 middle_point;
+    private Vector2 instance_point;
 
-    public SpawnController spawn_control;
+    [System.NonSerialized] public SpawnController spawn_control;
+    [System.NonSerialized] public Transform crossroad_room;
 
     private void Awake()
     {
